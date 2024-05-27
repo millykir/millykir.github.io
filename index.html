@@ -34,10 +34,23 @@
             margin-top: 40px;
             animation: slideIn 1s ease-in-out;
             text-shadow: 1px 1px #000;
+            position: relative;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #00ff00;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-radius: 2px;
         }
         p {
             animation: fadeIn 3s ease-in-out;
             line-height: 1.6;
+            margin: 0 auto 20px auto;
+            max-width: 600px;
         }
         img {
             width: 300px;
@@ -46,6 +59,7 @@
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s, box-shadow 0.3s;
+            animation: zoomIn 1s ease-in-out;
         }
         img:hover {
             transform: scale(1.1);
@@ -58,6 +72,16 @@
             border-radius: 10px;
             animation: fadeInUp 1.5s ease-in-out;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .section:hover {
+            background: rgba(42, 42, 42, 0.95);
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in-out;
+        }
+        .section:hover h2 {
+            color: #ff00ff;
+            transition: color 0.3s ease-in-out;
         }
         a {
             color: #00ff00;
@@ -78,6 +102,10 @@
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
         }
         @media (max-width: 600px) {
             img {
