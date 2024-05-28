@@ -80,6 +80,7 @@
             text-transform: uppercase;
             font-weight: bold;
             transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+            cursor: pointer;
         }
         .button:hover {
             background: #ff4040;
@@ -250,6 +251,7 @@
             <a href="#"><i class="fab fa-telegram"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
+        <button id="splashButton" class="button">Запустить анимацию капель</button>
     </div>
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
@@ -281,13 +283,14 @@
         // Milk splash animation
         const canvas = document.getElementById('milkCanvas');
         const ctx = canvas.getContext('2d');
+        const splashButton = document.getElementById('splashButton');
 
         let width, height, milkDrops = [];
 
         function init() {
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
-            canvas.addEventListener('click', addMilkDrop);
+            splashButton.addEventListener('click', addMilkDrop);
         }
 
         function resizeCanvas() {
@@ -296,8 +299,8 @@
         }
 
         function addMilkDrop(event) {
-            const x = event.clientX;
-            const y = event.clientY;
+            const x = Math.random() * width;
+            const y = Math.random() * height;
             milkDrops.push(new MilkDrop(x, y));
         }
 
