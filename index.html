@@ -217,6 +217,15 @@
                 font-size: 1.5em;
             }
         }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -228,14 +237,11 @@
         </div>
         <div class="section gallery animate__animated animate__fadeInUp">
             <h2>Наши модели</h2>
-            <img src="photo_2024-05-28_04-02-46.jpg" alt="Модель 1" class="animate__animated animate__zoomIn">
-            <img src="photo_2024-05-28_04-02-44.jpg" alt="Модель 2" class="animate__animated animate__zoomIn">
-            <img src="photo_2024-05-28_04-02-42.jpg" alt="Модель 3" class="animate__animated animate__zoomIn">
-        </div>
-        <div class="section animate__animated animate__fadeIn">
-            <h2>Отзывы клиентов</h2>
-            <p>"Презервативы отличного качества, комфортные и надежные. Рекомендую всем!" - Иван Иванов</p>
-            <p>"Быстрая доставка и отличное обслуживание. Очень доволен покупкой!" - Анна Смирнова</p>
+
+            <img src="https://via.placeholder.com/300x200" alt="Модель 1" class="fade-in">
+            <img src="https://via.placeholder.com/300x200" alt="Модель 2" class="fade-in">
+            <img src="https://via.placeholder.com/300x200" alt="Модель 3" class="fade-in">
+            <img src="path/to/your/image.jpg" alt="Закат на пляже" class="fade-in">
         </div>
         <div class="section animate__animated animate__fadeInUp">
             <h2>Заказать прямо сейчас</h2>
@@ -274,6 +280,19 @@
                 modal.style.display = "none";
             }
         }
+
+        // Intersection Observer for fade-in animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(image => {
+            observer.observe(image);
+        });
     </script>
 </body>
 </html>
