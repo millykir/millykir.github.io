@@ -6,6 +6,7 @@
     <title>Заказ презервативов онлайн</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM10Ggpkp8TTT0UFGYOB56s67N9anwWsd/5zjYz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -25,16 +26,19 @@
             font-size: 3em;
             margin: 0;
             padding: 20px 0;
+            animation: bounceInDown 2s;
         }
         h2 {
             color: #ff6363;
             font-size: 2em;
             margin-top: 40px;
+            animation: fadeInUp 1.5s;
         }
         p {
             line-height: 1.6;
             margin: 0 auto 20px auto;
             max-width: 800px;
+            animation: fadeInUp 1.5s;
         }
         img {
             width: 300px;
@@ -54,6 +58,7 @@
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s;
         }
         a {
             color: #ff6363;
@@ -86,6 +91,7 @@
             color: #ff6363;
             font-size: 2em;
             transition: color 0.3s;
+            animation: bounceIn 2s;
         }
         .social-icons a:hover {
             color: #ff4040;
@@ -133,6 +139,72 @@
             text-decoration: none;
             cursor: pointer;
         }
+        @keyframes bounceInDown {
+            from, 60%, 75%, 90%, to {
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -3000px, 0);
+            }
+            60% {
+                opacity: 1;
+                transform: translate3d(0, 25px, 0);
+            }
+            75% {
+                transform: translate3d(0, -10px, 0);
+            }
+            90% {
+                transform: translate3d(0, 5px, 0);
+            }
+            to {
+                transform: none;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        @keyframes bounceIn {
+            from, 20%, 40%, 60%, 80%, to {
+                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                transform: scale3d(.3, .3, .3);
+            }
+            20% {
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            40% {
+                transform: scale3d(.9, .9, .9);
+            }
+            60% {
+                opacity: 1;
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+            80% {
+                transform: scale3d(.97, .97, .97);
+            }
+            to {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
         @media (max-width: 600px) {
             img {
                 width: 100%;
@@ -149,27 +221,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Лучшие презервативы - Заказывайте сейчас!</h1>
-        <div class="section">
+        <h1 class="animate__animated animate__bounceInDown">Лучшие презервативы - Заказывайте сейчас!</h1>
+        <div class="section animate__animated animate__fadeIn">
             <h2>Преимущества</h2>
             <p>Наши презервативы изготовлены из высококачественных материалов, обеспечивают максимальную защиту и комфорт. Они проходят строгий контроль качества и соответствуют всем мировым стандартам.</p>
         </div>
-        <div class="section gallery">
+        <div class="section gallery animate__animated animate__fadeInUp">
             <h2>Наши модели</h2>
-            <img src="photo_2024-05-28_04-02-46.jpg" alt="Модель 1">
-            <img src="photo_2024-05-28_04-02-44.jpg" alt="Модель 2">
-            <img src="photo_2024-05-28_04-02-42.jpg" alt="Модель 3">
+            <img src="photo_2024-05-28_04-02-46.jpg" alt="Модель 1" class="animate__animated animate__zoomIn">
+            <img src="photo_2024-05-28_04-02-44.jpg" alt="Модель 2" class="animate__animated animate__zoomIn">
+            <img src="photo_2024-05-28_04-02-42.jpg" alt="Модель 3" class="animate__animated animate__zoomIn">
         </div>
-        <div class="section">
+        <div class="section animate__animated animate__fadeIn">
             <h2>Отзывы клиентов</h2>
             <p>"Презервативы отличного качества, комфортные и надежные. Рекомендую всем!" - Иван Иванов</p>
             <p>"Быстрая доставка и отличное обслуживание. Очень доволен покупкой!" - Анна Смирнова</p>
         </div>
-        <div class="section">
+        <div class="section animate__animated animate__fadeInUp">
             <h2>Заказать прямо сейчас</h2>
-            <a href="#" class="button">Перейти к заказу</a>
+            <a href="#" class="button animate__animated animate__pulse animate__infinite">Перейти к заказу</a>
         </div>
-        <div class="section social-icons">
+        <div class="section social-icons animate__animated animate__bounceIn">
             <h2>Следите за нами</h2>
             <a href="#"><i class="fab fa-vk"></i></a>
             <a href="#"><i class="fab fa-telegram"></i></a>
